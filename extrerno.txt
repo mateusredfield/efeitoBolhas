@@ -1,0 +1,6 @@
+bolinhas contadadas dao o espao certo na tela
+as bolinhas ocupam randomincamente o o espaco de uma linha, sendo 3 visiveis e uma invesivel pra bater o espaco certo, no caso a invisivel por causa
+  que o fixed buga td
+elas sobem com animacao do keyframe
+foram colcadas de maneira q qndo coupam a tela toda dao espaco certo mas a logica mais correta nao foi colocada
+conserto por causa q o chrome usa drogas, faz com q a animacao fique fluida desde o comeco
