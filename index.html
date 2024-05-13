@@ -221,15 +221,16 @@ body{
     animation: animate1C;
     animation-duration: 2.5s;
     animation-delay: 0s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
 }
 
 .animacaoGrupo2.inicial{
+    visibility: hidden;
     animation: animate2C;
     animation-duration: 2.5s;
-    animation-delay: 2.5s;
-    animation-iteration-count: infinite;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
 }
 
@@ -237,7 +238,7 @@ body{
     animation: animate1B;
     animation-duration: 2.5s;
     animation-delay: 0s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
 }
 
@@ -245,7 +246,7 @@ body{
     animation: animate2B;
     animation-duration: 2.5s;
     animation-delay: 0s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
 }
 
@@ -253,7 +254,7 @@ body{
     animation: animate1C;
     animation-duration: 2.5s;
     animation-delay: 0s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
 }
 
@@ -261,7 +262,7 @@ body{
     animation: animate2C;
     animation-duration: 2.5s;
     animation-delay: 0s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
 }
 
@@ -372,11 +373,35 @@ body{
             el.style.marginLeft = Math.floor(Math.random() * 98) + "%";
         });
         window.setTimeout(() => {
-            [].forEach.call(colecao, (el => {el.classList.toggle("escondido"); el.classList.toggle("inicial")})); //el.classList.toggle("inicial")}));
-            window.setTimeout(() => {
-                [].forEach.call(colecao, (el => {el.classList.toggle("inicial")}));
-                window.setInterval(function () {[].forEach.call(colecao, (el => {el.classList.toggle("normal"); el.classList.toggle("invertido");})) }, 2500); 
-            }, 2500)
+            [].forEach.call(colecao, (el => {
+                el.classList.toggle("escondido");
+                el.classList.toggle("inicial");
+            })); //el.classList.toggle("inicial")}));
+            console.log("nao sei");
+            [].forEach.call(colecao, (el => {
+                    console.log("nao sei call")
+                    el.addEventListener("animationend", function(){
+                        //console.log(this);
+                        console.log("animationend")
+                        this.classList.contains("inicial") ? 
+                            this.classList.remove("inicial") :
+                            this.classList.toggle("invertido");
+                    })
+                    //el.classList.toggle("invertido");
+            }));
+            // window.setTimeout(() => {
+            //     console.log("6 segundos");
+            //     [].forEach.call(colecao, (el => {el.classList.toggle("inicial")}));
+            //     [].forEach.call(colecao, (el => {
+            //         console.log("nao sei call")
+            //         el.addEventListener("transitionend", function(){
+            //             //console.log(this);
+            //             console.log("transitionend")
+            //             this.classList.toggle("invertido");
+            //         })
+            //         el.classList.toggle("invertido");
+            //     })); 
+            // }, 5000)
         }, 1000);
     })
 
